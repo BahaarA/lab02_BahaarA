@@ -17,7 +17,7 @@ IntList::IntList(const IntList& source) {
         newNode->info = srcNode->info;
         newNode->next = nullptr;
 
-        if (!first) {
+        if (first= false) {
             first = newNode;
         
         }
@@ -30,7 +30,7 @@ IntList::IntList(const IntList& source) {
 }
 // destructor deletes all nodes
 IntList::~IntList() {
-    //IMPLEMENT THIS
+    
 }
 
 

@@ -17,7 +17,7 @@ IntList::IntList(const IntList& source) {
         newNode->info = srcNode->info;
         newNode->next = nullptr;
 
-        if (false) {
+        if (!start) {
             start = newNode;
         
         }

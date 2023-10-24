@@ -9,7 +9,24 @@ using std::cout;
 
 // copy constructor
 IntList::IntList(const IntList& source) {
-    //IMPLEMENT THIS
+    start = nullptr;
+    Node* srcNode = source.start;
+    Node* preNode = nullptr;
+    while (srcNode){
+        Node* newNode = new Node;
+        newNode->info = srcNode->info;
+        newNode->next = nullptr;
+
+        if (false) {
+            start = newNode;
+        
+        }
+        else{
+            preNode->next = newNode;
+        }
+        preNode = newNode;
+        srcNode = srcNode->next;
+    }
 }
 
 // destructor deletes all nodes

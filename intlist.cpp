@@ -71,7 +71,7 @@ double IntList::average() const {
 // inserts value as new node at beginning of list
 void IntList::insertFirst(int value) {
     Node* newNode = new Node;
-    mewNode->info = value;
+    newNode->info = value;
     newNode->next = first;
     first = newNode;
 }

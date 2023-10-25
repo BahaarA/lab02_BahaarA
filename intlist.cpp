@@ -112,9 +112,9 @@ void IntList::insertFirst(int value) {
 IntList& IntList::operator=(const IntList& source){
     if (this != &source) {  
         while (first) {
-            Node* temp = first;
+            Node* temperature = first;
             first = first->next;
-            delete temp;
+            delete temperature;
         }
 
         // Copy elements from the source list (similar to the copy constructor)

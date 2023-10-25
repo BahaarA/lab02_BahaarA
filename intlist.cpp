@@ -1,6 +1,6 @@
 // intlist.cpp
 // Implements class IntList
-// YOUR NAME(S), AND DATE
+// Bahaar Ahuja, October 23, 2023
 
 #include "intlist.h"
 
@@ -17,26 +17,39 @@ IntList::IntList(const IntList& source) {
         newNode->info = srcNode->info;
         newNode->next = nullptr;
 
-        if (first= false) {
-            first = newNode;
+        if (first) {
+            
+            preNode->next = newNode;
         
         }
         else{
-            preNode->next = newNode;
+            first = newNode;
         }
         preNode = newNode;
         srcNode = srcNode->next;
     }
 }
+
 // destructor deletes all nodes
 IntList::~IntList() {
-    
+   while (first){
+    Node* temp = first;
+    first = first-> next;
+    delete temp;
+   }
 }
 
 
 // return sum of values in list
 int IntList::sum() const {
-    return 0; // REPLACE THIS NON-SOLUTION
+    int tot = 0;
+    Node* curNode = first;
+    while (curNode){
+        tot = tot + curNode-> info;
+        curNode = curNode-> next;
+    }
+    return tot;
+
 }
 
 // returns true if value is in the list; false if not
@@ -57,13 +70,42 @@ double IntList::average() const {
 
 // inserts value as new node at beginning of list
 void IntList::insertFirst(int value) {
-    // IMPLEMENT
+    Node* newNode = new Node;
+    mewNode->info = value;
+    newNode->next = first;
+    first = newNode;
 }
 
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
+    if (this != &source) {  
+        while (first) {
+            Node* temp = first;
+            first = first->next;
+            delete temp;
+        }
+
+        // Copy elements from the source list (similar to the copy constructor)
+        Node* srcNode = source.first;
+    Node* preNode = nullptr;
+    while (srcNode){
+        Node* newNode = new Node;
+        newNode->info = srcNode->info;
+        newNode->next = nullptr;
+
+        if (first) {
+            
+            preNode->next = newNode;
+        
+        }
+        else{
+            first = newNode;
+        }
+        preNode = newNode;
+        srcNode = srcNode->next;
+    }
+    }
     return *this;
 }
 

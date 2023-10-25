@@ -33,9 +33,9 @@ IntList::IntList(const IntList& source) {
 // destructor deletes all nodes
 IntList::~IntList() {
    while (first){
-    Node* temp = first;
+    Node* temperature = first;
     first = first-> next;
-    delete temp;
+    delete temperature;
    }
 }
 
@@ -98,7 +98,6 @@ double IntList::average() const {
     return static_cast<double>(total) / count;
 }
     
-}
 
 // inserts value as new node at beginning of list
 void IntList::insertFirst(int value) {

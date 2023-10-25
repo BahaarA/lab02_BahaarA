@@ -91,7 +91,7 @@ double IntList::average() const {
     int total = 0;
     int count = 0;
     for (Node* curNode = first; curNode; curNode = curNode->next) {
-        total = total +currentNode->info;
+        total = total +curNode->info;
         count++;
     }
 

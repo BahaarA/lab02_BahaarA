@@ -10,11 +10,11 @@ using std::cout;
 // copy constructor
 IntList::IntList(const IntList& source) {
     first = nullptr;
-    Node* srcNode = source.first;
+    Node* xNode = source.first;
     Node* preNode = nullptr;
-    while (srcNode){
+    while (xNode){
         Node* newNode = new Node;
-        newNode->info = srcNode->info;
+        newNode->info = xNode->info;
         newNode->next = nullptr;
 
         if (first) {
@@ -26,7 +26,7 @@ IntList::IntList(const IntList& source) {
             first = newNode;
         }
         preNode = newNode;
-        srcNode = srcNode->next;
+        xNode = xNode->next;
     }
 }
 
@@ -65,9 +65,7 @@ bool IntList::contains(int value) const {
 
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
-    if (!first) {
-        return 0;  //  Empty list
-    }
+    if (!first) { return 0;  }  // empty list
 
     int max = first->info;
     Node* curNode = first->next;
@@ -85,9 +83,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    if (!first) {
-        return 0.0;  // Empty list
-    }
+    if (!first) { return 0.0; } // empty list
     int total = 0;
     int count = 0;
     for (Node* curNode = first; curNode; curNode = curNode->next) {
@@ -117,12 +113,12 @@ IntList& IntList::operator=(const IntList& source){
             delete temperature;
         }
 
-        // Copy elements from the source list (similar to the copy constructor)
-        Node* srcNode = source.first;
+        
+        Node* xNode = source.first;
     Node* preNode = nullptr;
-    while (srcNode){
+    while (xNode){
         Node* newNode = new Node;
-        newNode->info = srcNode->info;
+        newNode->info = xNode->info;
         newNode->next = nullptr;
 
         if (first) {
@@ -134,7 +130,7 @@ IntList& IntList::operator=(const IntList& source){
             first = newNode;
         }
         preNode = newNode;
-        srcNode = srcNode->next;
+        xNode = xNode->next;
     }
     }
     return *this;
